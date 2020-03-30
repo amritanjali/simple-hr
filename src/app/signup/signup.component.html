@@ -1,0 +1,79 @@
+<div class="row bg-image">
+<div class="container customLogin">
+  <p class="text-uppercase">Registration</p>
+  <div class="col-xs-12 col-md-12 padd0" *ngIf="signupScree">
+  <form [formGroup]= "signupForm" (ngSubmit)="signup()">
+      <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">First Name<span class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="firstName" placeholder="Email" formControlName="firstName">
+            <p *ngIf="submitted && g.firstName.errors" class="text-danger">
+                First Name is required
+            </p>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Last Name<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="lastName" placeholder="Password" formControlName="lastName">
+            <p *ngIf="submitted && g.lastName.errors" class="text-danger">
+                <!-- <span *ngIf ="g.login.errors.touched && g.login.errors.dirty"> -->
+                    last name is required
+                <!-- </span> -->
+          </p>
+          </div>
+        </div>
+    <div class="form-group">
+      <label for="inputAddress">UserName<span class="text-danger">*</span></label>
+      <input type="text" class="form-control" id="" placeholder="usernamae" formControlName="login" (keydown.space)="$event.preventDefault()">
+      <p *ngIf="submitted && g.login.errors" class="text-danger">
+            <!-- <span *ngIf ="g.login.errors.touched && g.login.errors.dirty"> -->
+                user name is required
+            <!-- </span> -->
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail4">Email<span class="text-danger">*</span></label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email" formControlName="email">
+      <p *ngIf="submitted && g.email.errors" class="text-danger">
+          email is required
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword4">Password<span class="text-danger">*</span></label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Password" formControlName="password">
+      <p *ngIf="submitted && g.password.errors" class="text-danger">
+        <span *ngIf="g.password.errors.required">
+            password is required
+          </span>
+          <span *ngIf="g.password.errors.minlength" class="text-danger">
+              password should be minimum 6 chracters
+          </span>
+        </p>
+      
+    </div>
+    <div class="form-group">
+      <label for="inputPassword4">password confirmation<span class="text-danger">*</span></label>
+      <input type="password" class="form-control"  placeholder="Password" formControlName="Cpassword">
+      <p *ngIf="submitted && g.Cpassword.errors" class="text-danger">
+            Confirm password is required
+        </p>
+        <p *ngIf="confirmPasswordError" class="text-danger">
+            confirm password is not matching.
+        </p>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign up</button>
+   
+  </form>
+  <div class="p-3 mb-2 bg-danger text-white m-3" *ngIf="errorShow">
+    <img src="../../assets/img/sad.PNG" style="width:35px;"> {{errorMsg.title}}</div>
+</div>
+
+<div class="col-xs-12 col-md-12" *ngIf="signupDoneMsg">
+  <p class="alert alert-success">
+    <img src="../../assets/img/happy.PNG" style="width:35px;"> Congratulation you have successfully  Registered !!!
+    <br>
+    <a  [routerLink]="['login']" class="link">Login here >></a>
+
+  </p>
+</div>
+</div>
+</div>

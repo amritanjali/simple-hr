@@ -1,0 +1,67 @@
+<div class="container" style="position:relative">
+    <h4><br>Edit user Informations</h4>
+    <form  (ngSubmit)="submit(userDetails)">
+            <div class="form-group">
+                    <label>login</label>
+                    <input class="form-control" [(ngModel)]="userDetails.login" name="login" placeholder="first name" (keydown.space)="$event.preventDefault()">
+                </div>
+        <div class="form-group">
+            <label>First Name</label>
+            <input class="form-control"  [(ngModel)]="userDetails.firstName" name="firstName" placeholder="first name">
+        </div>
+        <div class="form-group">
+                <label>Last Name</label>
+                <input class="form-control"  [(ngModel)]="userDetails.lastName" name="lastName" placeholder="last name">
+            </div>
+            <div class="form-group">
+                    <label>email</label>
+                    <input class="form-control"  [(ngModel)]="userDetails.email" name="email" placeholder="email">
+           </div>
+           <!-- <div class="form-group">
+               <label>Language</label>
+               <select formControlName="langKey">
+                   <option *ngFor="let userLangs of userLang" value={{userLangs.value}}>{{userLangs.label}}</option>
+               </select>
+           </div> -->
+           <div class="form-group">
+             <label for="activated">
+                <input class="form-check-input"  type="checkbox"  [(ngModel)]="userDetails.activated"  id="activated" name="activated" (change)="activatedUser(event)">activated<br>
+            </label>
+            </div>
+
+            <div class="form-group">
+                    <!-- <label>user Roles</label> -->
+                 
+                            <!-- <input class="form-control"  type="text"  [(ngModel)]="userDetails.authorities"   name="authorities" readonly><br> -->
+                            <!-- <option *ngFor="let authorities of userDetails"  value={{roles.value}} [(ngModel)]="roles.value" (change)="roleSelected(roles.value)">{{roles.label}}</option> -->
+                         <!-- <option *ngFor="let roles of userRoles"  value={{roles.value}} [(ngModel)]="roles.value" (change)="roleSelected(roles.value)">{{roles.label}}</option> -->
+        
+                   
+        </div>
+        <div class="form-group">
+              <label>user Roles</label>
+            <select class="form-control" [(ngModel)]="userDetails.authorities" (change)="selectedAuthority(userDetails.authorities)" name="authorities">
+                <option *ngFor="let authorities of authority" value={{authorities}} >{{authorities}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+                <label>select Language</label>
+        <select class="form-control" [(ngModel)]="userDetails.langKey" (change)="selectedLang(userDetails.langKey)" name="language">
+              
+            <option *ngFor="let userLangs of userLang" value={{userLangs.value}}>{{userLangs.label}}</option>
+        </select>
+        </div>
+           <button class="btn btn-info">Submit</button>
+          
+    </form>
+    <button class="btn btn-default cancel-btn" (click)="cancel()">Back</button>
+</div>
+
+<div class="p-3 mb-2 bg-danger text-white m-3" *ngIf="errorMsg"><img src="../../assets/img/sad.PNG" style="width:35px;"> {{errorStatus.title}}</div>
+
+<div class="col-xs-12 col-md-12" *ngIf="successMsg">
+  <p class="alert alert-success">
+    <img src="../../assets/img/happy.PNG" style="width:35px;"> Congratulation you have successfully  edited data !!!
+
+  </p>
+</div>

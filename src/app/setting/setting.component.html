@@ -1,0 +1,41 @@
+<div class="container">
+<form [formGroup]="settingForm" (ngSubmit)="submit()">
+        <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="firstName" class="form-control" placeholder="Enter firstName" id="firstName" formControlName="firstName" [(ngModel)]="userdetails.firstName">
+            <!-- <p *ngIf="submitted && g.firstName.errors">
+                <p *ngIf="g.firstName.required" class="text-danger">
+                        First name is required
+                </p>
+
+            </p> -->
+            </div>
+              <div class="form-group">
+                <label for="pwd">Last Name:</label>
+                <input type="text" class="form-control" placeholder="Enter lastname" id="lastname" formControlName="lastName" [(ngModel)]="userdetails.lastName">
+              </div>
+              <div class="form-group">
+                    <label for="pwd">email:</label>
+                    <input type="email" class="form-control" placeholder="Enter lastname" id="lastname" formControlName="email" [(ngModel)]="userdetails.email">
+                </div>
+            <div class="form-group">
+              <!-- <select formControlName="langKey" (onchange)="langSelect(langKey)">
+                  <option value="en">English</option>
+                  <option value="hi">Hindi</option>
+              </select> -->
+              <label>Select language:</label>
+              <select class="form-control" [(ngModel)]="userdetails.langKey"  formControlName="langKey" (change)="langSelect(userdetails.langKey)">
+                  <option *ngFor="let langList of langObj" value="{{langList.value}}" >{{langList.label}}</option>
+              </select>
+
+            </div>
+           
+<button class="btn btn-info">Save</button>
+</form>
+<div class="col-md-12 col-xs-12" *ngIf="updateSuccess">
+    <p class="alert alert-success">
+        <img src="../../assets/img/happy.PNG" style="width:35px;"> Congratulation you have successfully  updated !!!
+    
+      </p>
+</div>
+</div>

@@ -1,0 +1,95 @@
+<!-- <p>{{userDetails.id}}</p> -->
+<div class="container" >
+ 
+    <!-- <p>first Name:{{userDetails.login}}</p>
+    <p>login:{{ userDetails?.activated}}</p>
+   <p>first Name:{{userDetails.firstName}}</p>
+    <p>lastName: {{userDetails.lastName}}</p>
+    <p>email: {{userDetails.email}}</p>
+   
+    <p>authorities:{{userDetails.authorities}}</p>
+    <p>createdBy: {{userDetails.createdBy}}</p>
+    <p>createdDate: {{userDetails.createdDate}}</p>
+   
+    <p>id :{{userDetails.id}}</p>
+    <p>image url : {{userDetails.imageUrl}}</p>
+    <p>langKey: {{userDetails.langKey}}</p>
+    <p>lastModifiedBy: {{userDetails.lastModifiedBy}}</p>
+   -->
+    <table class="table">
+            <thead>
+              <tr>
+                <th>User </th>
+                <th>user Details</th>
+              </tr>
+            </thead>
+            <tbody>    
+              <tr class="table-primary">
+                <td>id</td>
+                <td>{{userDetails.id}}</td>
+              
+              </tr>
+              <tr class="table-success">
+                    <td>login Name</td>
+                    <td>{{userDetails.login}}</td>
+              </tr>
+              <tr class="table-danger">
+                    <td>first Name</td>
+                    <td>{{userDetails.firstName}}</td>
+              </tr>
+              <tr class="table-info">
+                    <td>Last Name</td>
+                    <td>{{ userDetails?.lastName}}</td>
+              </tr>
+              <tr class="table-warning">
+                    <td>email</td>
+                    <td>{{userDetails.email}}</td> 
+             
+              </tr>
+              <tr class="table-active">
+                    <td>activated</td>
+                    <td>{{ userDetails?.activated}}</td>
+              </tr>
+              <tr class="table-secondary">
+                  
+                    <td>createdBy</td>
+                    <td>{{userDetails.createdBy}}</td> 
+              </tr>
+              <tr class="table-light">
+                   <td> createdDate</td> 
+                   <td *ngIf="userDetails?.createdDate">{{userDetails?.createdDate}}</td>
+                   <td *ngIf="userDetails.createdDate == null ">Null</td>
+              </tr>
+              <tr class="table-warning">
+                 <td>
+                        image url
+                 </td>    
+                 <td *ngIf="userDetails.imageUrl">{{userDetails.imageUrl}}</td>
+                 <td *ngIf="userDetails.imageUrl== null">Null</td>
+              </tr>
+              <tr class="table-info">
+               <td>langKey</td> <td>{{userDetails.langKey}}</td>
+              </tr>
+              <tr class="table-success">
+                    <td>lastModifiedBy</td>
+                    <td>{{userDetails.lastModifiedBy}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-default cancel-btn" (click)="cancel()">Back</button>
+</div>
+
+
+<!-- activated: true
+authorities: ["ROLE_USER"]
+createdBy: "anonymousUser"
+createdDate: "2020-03-08T13:24:15Z"
+email: "grace@gmail.com"
+firstName: "grace"
+id: 7
+imageUrl: null
+langKey: "en"
+lastModifiedBy: "amritanjali"
+lastModifiedDate: "2020-03-08T15:08:43Z"
+lastName: "gracy"
+login: "grace" -->
